@@ -1,0 +1,6 @@
+sensor,raw_missing,outliers,repaired
+temperature_inside_c,8,2,10
+temperature_outside_c,8,2,10
+illuminance_lux,8,2,10
+power_w,8,2,10
+motion,8,0,8

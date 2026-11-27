@@ -1,0 +1,90 @@
+{
+  "variant": 9,
+  "description": "Smart-home energy monitoring and optimization (synthetic telemetry)",
+  "rows": 672,
+  "sampling_interval_minutes": 15,
+  "days": 7,
+  "total_energy_kwh_estimate": 97.316,
+  "mean_inside_temperature_c": 20.7,
+  "mean_outside_temperature_c": 7.0,
+  "motion_intervals": 120,
+  "motion_hours_estimate": 30.0,
+  "missing_and_outlier_summary": [
+    {
+      "sensor": "temperature_inside_c",
+      "raw_missing": 8,
+      "outliers": 2,
+      "repaired": 10
+    },
+    {
+      "sensor": "temperature_outside_c",
+      "raw_missing": 8,
+      "outliers": 2,
+      "repaired": 10
+    },
+    {
+      "sensor": "illuminance_lux",
+      "raw_missing": 8,
+      "outliers": 2,
+      "repaired": 10
+    },
+    {
+      "sensor": "power_w",
+      "raw_missing": 8,
+      "outliers": 2,
+      "repaired": 10
+    },
+    {
+      "sensor": "motion",
+      "raw_missing": 8,
+      "outliers": 0,
+      "repaired": 8
+    }
+  ],
+  "lighting_control_example": {
+    "baseline_assumption": "45 W lamp is on during all sample intervals",
+    "controlled_assumption": "45 W lamp is on only when motion=1 and illuminance<180 lux",
+    "baseline_lighting_kwh": 7.56,
+    "estimated_controlled_lighting_kwh": 0.866,
+    "estimated_saving_percent": 88.54,
+    "note": "Illustrative model comparison, not a measured or guaranteed household saving."
+  },
+  "compression": [
+    {
+      "algorithm": "gzip",
+      "original_bytes": 129021,
+      "compressed_bytes": 29381,
+      "size_percent": 22.772261879849015,
+      "saved_percent": 77.22773812015097,
+      "compression_seconds": 0.004244212000003245
+    },
+    {
+      "algorithm": "zlib",
+      "original_bytes": 129021,
+      "compressed_bytes": 29369,
+      "size_percent": 22.762961068353214,
+      "saved_percent": 77.23703893164678,
+      "compression_seconds": 0.004376659000001837
+    },
+    {
+      "algorithm": "bzip2",
+      "original_bytes": 129021,
+      "compressed_bytes": 22494,
+      "size_percent": 17.43437114888274,
+      "saved_percent": 82.56562885111725,
+      "compression_seconds": 0.00798899099999062
+    }
+  ],
+  "firebase": {
+    "status": "OK",
+    "firebase_path": "/rgr_iot_variant9/smart_home",
+    "compression": "bzip2",
+    "uploaded_rows": 672,
+    "downloaded_rows": 672,
+    "original_bytes": 129021,
+    "compressed_bytes": 22494,
+    "sha256_verified": true,
+    "downloaded_csv": "/app/output/firebase_downloaded_readings.csv"
+  },
+  "local_pipeline_seconds": 2.71
+}

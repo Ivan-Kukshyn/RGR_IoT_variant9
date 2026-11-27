@@ -1,0 +1,11 @@
+{
+  "status": "OK",
+  "firebase_path": "/rgr_iot_variant9/smart_home",
+  "compression": "bzip2",
+  "uploaded_rows": 672,
+  "downloaded_rows": 672,
+  "original_bytes": 129021,
+  "compressed_bytes": 22494,
+  "sha256_verified": true,
+  "downloaded_csv": "/app/output/firebase_downloaded_readings.csv"
+}

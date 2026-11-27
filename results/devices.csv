@@ -1,0 +1,6 @@
+sensor_key,sensor_type,unit,location
+temperature_inside_c,temperature,°C,living room
+temperature_outside_c,temperature,°C,outdoors
+illuminance_lux,illuminance,lux,living room
+power_w,energy_monitor,W,electrical panel
+motion,presence,bool,living room

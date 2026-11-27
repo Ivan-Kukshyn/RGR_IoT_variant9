@@ -1,0 +1,14 @@
+RGR IoT variant 9 — local pipeline
+Timestamp: 2026-11-27T08:13:33
+Rows (15-min): 672
+SQLite: /app/output/smart_home.sqlite3
+Estimated weekly energy: 97.316 kWh
+Observed motion intervals: 120
+Lighting saving illustration: 88.54%
+Compression:
+  gzip: 129021 -> 29381 bytes (77.23% saved)
+  zlib: 129021 -> 29369 bytes (77.24% saved)
+  bzip2: 129021 -> 22494 bytes (82.57% saved)
+Firebase status: OK
+
+Total local runtime: 2.71 s

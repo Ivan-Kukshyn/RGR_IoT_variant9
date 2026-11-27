@@ -1,0 +1,48 @@
+services:
+  # Local container run: no cloud credentials required.
+  smart-home-iot:
+    build: .
+    image: rgr-iot-variant-9:latest
+    environment:
+      OUTPUT_DIR: /app/output
+      MPLBACKEND: Agg
+      FIREBASE_ENABLED: "false"
+    volumes:
+      - ./output:/app/output
+
+  # Full assignment run: upload the compressed dataset to Firebase and read it back.
+  # Requires .env with FIREBASE_DATABASE_URL and secrets/serviceAccountKey.json.
+  smart-home-iot-firebase:
+    profiles: ["firebase"]
+    build: .
+    image: rgr-iot-variant-9:latest
+    environment:
+      OUTPUT_DIR: /app/output
+      MPLBACKEND: Agg
+      FIREBASE_ENABLED: "true"
+      FIREBASE_DATABASE_URL: ${FIREBASE_DATABASE_URL:-}
+      FIREBASE_CREDENTIALS: /run/secrets/serviceAccountKey.json
+    volumes:
+      - ./output:/app/output
+      - ./secrets/serviceAccountKey.json:/run/secrets/serviceAccountKey.json:ro
+
+  # Optional JupyterLab interface inside Docker.
+  jupyterlab:
+    profiles: ["notebook"]
+    build: .
+    image: rgr-iot-variant-9:latest
+    command:
+      - jupyter
+      - lab
+      - --ip=0.0.0.0
+      - --port=8888
+      - --no-browser
+      - --allow-root
+      - --ServerApp.root_dir=/app
+      - --ServerApp.token=${JUPYTER_TOKEN:-rgr-iot-variant-9}
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./code:/app/code
+      - ./notebooks:/app/notebooks
+      - ./output:/app/output
